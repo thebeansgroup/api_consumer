@@ -39,8 +39,8 @@ module ApiConsumer
       self.parser_registry = ParserRegistry
     end
 
-    def parser_registry(&block)
-      binding.pry
+    def build_parser_registry(&block)
+      yield self.parser_registry
     end
   end
 

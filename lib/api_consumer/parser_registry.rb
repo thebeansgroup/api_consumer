@@ -5,10 +5,12 @@ module ApiConsumer
 
     class_attribute :registered_parsers
 
+    self.registered_parsers = {}
+
     class << self
 
       def registered
-        self.registered_parsers ||= {}
+        self.registered_parsers
       end
 
       def registered?(name, namespace = DEFAULT_NAMESPACE)

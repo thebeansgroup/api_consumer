@@ -10,6 +10,11 @@ module ApiConsumer
         parsed.delete 'response'
         @response = parsed
       end
+
+      def collect!
+        @response = ApiConsumer::Processor.process @response, resource_class
+        super
+      end
     end
   end
 end

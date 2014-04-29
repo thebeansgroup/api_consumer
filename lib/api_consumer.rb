@@ -1,7 +1,11 @@
 require 'api_consumer/version'
-require 'api_consumer/parsers/base'
 require 'api_consumer/parser_registry'
+require 'api_consumer/processor'
+require 'api_consumer/parsers/base'
 require 'api_consumer/parsers/collection'
+require 'api_consumer/parsers/meta'
+require 'api_consumer/elements/response'
+require 'api_consumer/elements/meta'
 require 'api_consumer/attributes/base'
 require 'api_consumer/railtie' if defined?(Rails)
 

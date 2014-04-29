@@ -1,7 +1,7 @@
 module ApiConsumer
   module Parsers
     class Base
-      def load(attributes)
+      def self.parse(attributes)
         raise "Not defined"
       end
     end

@@ -30,6 +30,12 @@ module ApiConsumer
         self.registered_parsers[namespace] ||= {}
         registered[namespace][name] = parser
       end
+
+      def parser_for(key, namespace = DEFAULT_NAMESPACE)
+        raise "unknown namespace '#{namespace}'" unless has_namespace? namespace
+        return self.registered_parsers.fetch(namespace).fetch(key) if registered? key, namespace
+        return self.registered_parsers.fetch(DEFAULT_NAMESPACE).fetch(key) if registered? key
+      end
     end
   end
 end

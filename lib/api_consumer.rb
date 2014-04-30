@@ -35,6 +35,7 @@ module ApiConsumer
 
     def load_with_meta(attributes, remove_root = false, persisted = false)
       if Attributes::Base.new(attributes).standardized?
+        attributes = attributes.fetch("response")
       end
       load_without_meta attributes, remove_root, persisted
     end

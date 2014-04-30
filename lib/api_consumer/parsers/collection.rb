@@ -12,7 +12,7 @@ module ApiConsumer
       end
 
       def collect!
-        @response = ApiConsumer::Processor.process @response, resource_class
+        @response = ApiConsumer::Processor.process @response, resource_class.to_s
         super
       end
     end

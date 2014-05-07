@@ -25,20 +25,24 @@ module ApiConsumer
   end
 
   module Base
+    module Initializer
+      def initialize(attributes, persisted = false)
+        if Attributes::Base.new(attributes).standardized?
+          attributes = attributes.fetch('data')
+        end
+
+        super attributes, persisted
+      end
+    end
+
     mattr_accessor :parser_registry
     def self.included(base)
       base.class_eval do
         base.collection_parser = Parsers::Collection
-        alias_method_chain :load, :meta
+        base.send :prepend, Initializer
       end
     end
 
-    def load_with_meta(attributes, remove_root = false, persisted = false)
-      if Attributes::Base.new(attributes).standardized?
-        attributes = attributes.fetch("response")
-      end
-      load_without_meta attributes, remove_root, persisted
-    end
   end
 
   class Configuration

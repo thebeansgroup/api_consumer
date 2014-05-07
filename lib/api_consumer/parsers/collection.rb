@@ -6,8 +6,8 @@ module ApiConsumer
       attr_accessor :response
 
       def initialize(parsed = {})
-        @elements = parsed.fetch('response')
-        parsed.delete 'response'
+        @elements = parsed.fetch('data')
+        parsed.delete 'data'
         @response = parsed
       end
 

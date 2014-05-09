@@ -13,9 +13,14 @@ module ApiConsumer
         self.registered_parsers
       end
 
+      # Return whether or not the namespace has a parser in the registry
+      # with the given name
       def registered?(name, namespace = DEFAULT_NAMESPACE)
-        raise "No such namespace '#{namespace}" unless has_namespace?(namespace)
-        self.registered_parsers[namespace].has_key? name
+        registered = has_namespace? namespace
+        if registered
+          registered = self.registered_parsers[namespace].has_key? name
+        end
+        registered
       end
 
       def has_namespace?(namespace)
@@ -32,7 +37,6 @@ module ApiConsumer
       end
 
       def parser_for(key, namespace = DEFAULT_NAMESPACE)
-        raise "unknown namespace '#{namespace}'" unless has_namespace? namespace
         return self.registered_parsers.fetch(namespace).fetch(key) if registered? key, namespace
         return self.registered_parsers.fetch(DEFAULT_NAMESPACE).fetch(key) if registered? key
       end

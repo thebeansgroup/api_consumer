@@ -23,6 +23,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activeresource", "~> 4.0"
 
   spec.add_development_dependency "bundler", "~> 1.5"
-  spec.add_development_dependency "jazz_hands", "~> 0.5.2"
+  spec.add_development_dependency 'pry-byebug'
+  spec.add_development_dependency 'pry-rails'
+  spec.add_development_dependency 'pry-stack_explorer'
+  spec.add_development_dependency 'awesome_print'
   spec.add_development_dependency "rake"
 end

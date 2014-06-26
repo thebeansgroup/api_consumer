@@ -26,7 +26,7 @@ module ApiConsumer
 
   module Base
     module Initializer
-      def initialize(attributes, persisted = false)
+      def initialize(attributes = {}, persisted = false)
         if Attributes::Base.new(attributes).standardized?
           attributes = attributes.fetch('data')
         end

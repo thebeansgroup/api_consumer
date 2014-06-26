@@ -1,4 +1,4 @@
-## Next
+## 0.0.8.pre
 - Fixed overridden initializer bug that always required an attributes hash
   present in the arguments
 

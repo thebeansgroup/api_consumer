@@ -11,6 +11,7 @@ require 'api_consumer/elements/pagination'
 require 'api_consumer/elements/order'
 require 'api_consumer/elements/meta'
 require 'api_consumer/attributes/base'
+require 'api_consumer/error_handler'
 require 'api_consumer/railtie' if defined?(Rails)
 
 module ApiConsumer
@@ -26,23 +27,27 @@ module ApiConsumer
 
   module Base
     module Initializer
-      def initialize(attributes, persisted = false)
+      def initialize(attributes = {}, persisted = false)
         if Attributes::Base.new(attributes).standardized?
           attributes = attributes.fetch('data')
         end
-
         super attributes, persisted
       end
     end
 
+    module ClassMethods
+      include ErrorHandler
+    end
+
     mattr_accessor :parser_registry
+
     def self.included(base)
+      base.extend(ClassMethods)
       base.class_eval do
         base.collection_parser = Parsers::Collection
         base.send :prepend, Initializer
       end
     end
-
   end
 
   class Configuration

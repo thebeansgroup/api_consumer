@@ -1,3 +1,3 @@
 module ApiConsumer
-  VERSION = "0.0.6.pre"
+  VERSION = "0.0.8.pre"
 end

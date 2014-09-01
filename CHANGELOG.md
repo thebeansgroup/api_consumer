@@ -1,4 +1,5 @@
 ## Next
+- Added a error handler.
 
 ## 0.0.8.pre
 - Fixed overridden initializer bug that always required an attributes hash

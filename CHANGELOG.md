@@ -1,4 +1,4 @@
-## Next
+## 0.1.0
 - Added a error handler.
 
 ## 0.0.8.pre

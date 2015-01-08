@@ -1,4 +1,4 @@
-## Next
+## 0.2.0
 - Added has_more to pagination
 
 ## 0.1.0

@@ -1,3 +1,6 @@
+## Next
+- Added has_more to pagination
+
 ## 0.1.0
 - Added a error handler.
 

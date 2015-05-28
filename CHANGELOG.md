@@ -1,3 +1,6 @@
+## 0.3.0
+- Added total to pagination
+
 ## 0.2.0
 - Added has_more to pagination
 

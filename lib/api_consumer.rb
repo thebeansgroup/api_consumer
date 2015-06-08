@@ -11,7 +11,7 @@ require 'api_consumer/elements/pagination'
 require 'api_consumer/elements/order'
 require 'api_consumer/elements/meta'
 require 'api_consumer/attributes/base'
-require 'api_consumer/error_handler'
+require 'api_consumer/finder'
 require 'api_consumer/railtie' if defined?(Rails)
 
 module ApiConsumer

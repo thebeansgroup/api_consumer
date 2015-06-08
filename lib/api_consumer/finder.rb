@@ -1,5 +1,5 @@
 module ApiConsumer
-  module ErrorHandler
+  module Finder
     def find(*attributes)
       scope = attributes.slice(0)
       if scope == :all

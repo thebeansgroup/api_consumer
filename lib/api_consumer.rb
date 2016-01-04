@@ -36,7 +36,7 @@ module ApiConsumer
     end
 
     module ClassMethods
-      include ErrorHandler
+      include Finder
     end
 
     mattr_accessor :parser_registry

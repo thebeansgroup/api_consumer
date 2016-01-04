@@ -1,15 +1,12 @@
 module ApiConsumer
   module Finder
     def find(*attributes)
-      scope = attributes.slice(0)
-      if scope == :all
-        begin
-          super(*attributes)
-        rescue ActiveResource::ConnectionError, ActiveResource::ClientError
-          []
-        end
+      super(*attributes)
+    rescue ActiveResource::ConnectionError, ActiveResource::ClientError => e
+      if attributes.first == :all
+        ActiveResource::Collection.new
       else
-        super(*attributes)
+        raise e
       end
     end
   end

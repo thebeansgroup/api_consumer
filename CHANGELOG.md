@@ -1,3 +1,6 @@
+## 0.4.0
+- Empty collection responses return object over empty array
+
 ## 0.3.0
 - Added total to pagination
 
